@@ -4,6 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Catamaran&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/vue@3.0.5"></script>
   <link rel="stylesheet" href="style.css">
   <title>VUE Salmon Cookies</title>
@@ -41,9 +45,12 @@
             </label>
           </li>
         </ul>
-        <button>Submit</button>
+        <button class="btn draw-border">Submit</button>
       </fieldset>
-  </form>
+    </form>
+    <div>
+      
+    </div>
     <table id="store-table">
       <thead>
         <tr>
@@ -51,14 +58,14 @@
           <th v-for="time in times" :key="time">
             {{ time }}
           </th>
-          <th>DAILY TOTAL</th>
+          <th>Daily Totals</th>
         </tr>
       </thead>
       <tbody>
         <tr v-for="store in stores" :key="store">
           <th>{{ store.location }}</th>
           <td v-for="sales in store.dailyReport" :key="sales">
-          {{ sales }}
+            {{ sales }}
           </td>
           <td> {{ store.totalCookies }}</td>
         </tr>
@@ -73,8 +80,8 @@
         </tr>
       </tfoot>
       </tbody>
-  </table>
-  <button @click="calculateTotals">Calculate Totals</button>
+    </table>
+    <button id="totals" class="btn draw-border" @click="calculateTotals">Calculate Totals</button>
   </div>
   <script src="app.js"></script>
 </body>

@@ -6,20 +6,14 @@ body {
 /* Table and Text */
 h1 {
   text-align: center;
-  font-family: 'Staatliches', cursive;
+  font-family: 'Satisfy', cursive;
   font-size: 80px;
-  margin: 10px 25px 10px 25px;
-}
-
-h4 {
-  text-align: center;
-  font-family: 'Staatliches', cursive;
-  font-size: 16px;
   margin: 10px 25px 10px 25px;
 }
 
 th {
   font-size: 28px;
+  text-decoration: underline;
 }
 
 td {
@@ -36,25 +30,34 @@ li {
 
 legend {
   font-size: 50px;
- 
+  text-decoration: underline;
 }
 
 fieldset {
   border-radius: 25px;
 }
 
+#totals {
+  display: block;
+  margin: auto
+}
+
 input {
   font-size: 25px;
 }
-
-button {
+/* button {
   border: none;
   background-color: black;
   color: white;
   font-size: 30px;
   padding: 10px 15px;
   border-radius: 15px;
-  margin-left: 25px
+  margin-left: 25px;
+  font-family: 'Catamaran', sans-serif;
+} */
+
+button:hover {
+  cursor: pointer
 }
 
 a:link {
@@ -70,7 +73,7 @@ a:hover {
 }
 
 #addStoreForm {
-  font-family: 'Staatliches', cursive;
+  font-family: 'Catamaran', sans-serif;
 }
 
 #store-table {
@@ -81,7 +84,7 @@ a:hover {
   border-radius: 5px 5px 0 0;
   overflow: hidden;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-  font-family: 'Staatliches', cursive;
+  font-family: 'Catamaran', sans-serif;
   border-radius: 25px;
 }
 
@@ -143,4 +146,59 @@ body {
   50% {
     transform: translate3d(0,5px,0);
   }
+}
+
+.draw-border {
+  box-shadow: inset 0 0 0 4px #58afd1;
+  color: #58afd1;
+  transition: color 0.25s 0.0833333333s;
+  position: relative;
+}
+
+.draw-border::before, .draw-border::after {
+  border: 0 solid transparent;
+  box-sizing: border-box;
+  content: '';
+  pointer-events: none;
+  position: absolute;
+  width: 0;
+  height: 0;
+  bottom: 0;
+  right: 0;
+}
+.draw-border::before {
+  border-bottom-width: 4px;
+  border-left-width: 4px;
+}
+.draw-border::after {
+  border-top-width: 4px;
+  border-right-width: 4px;
+}
+.draw-border:hover {
+  color: #ff0000;
+}
+.draw-border:hover::before, .draw-border:hover::after {
+  border-color: #ffbe3d;
+  transition: border-color 0s, width 0.25s, height 0.25s;
+  width: 100%;
+  height: 100%;
+}
+.draw-border:hover::before {
+  transition-delay: 0s, 0s, 0.25s;
+}
+.draw-border:hover::after {
+  transition-delay: 0s, 0.25s, 0s;
+}
+.btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  line-height: 1.5;
+  font: 700 1.6rem 'Roboto Slab', sans-serif;
+  padding: 1em 2em;
+  letter-spacing: 0.05rem;
+  margin-left: 20px;
+}
+.btn:focus {
+  outline: 2px dotted #55d7dc;
 }
