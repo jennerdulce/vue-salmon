@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://unpkg.com/vue@3.0.5"></script>
+  <link rel="stylesheet" href="style.css">
+  <title>VUE Salmon Cookies</title>
+</head>
+
+<body>
+  <div id="app">
+    <div class="ocean">
+      <div class="wave"></div>
+      <div class="wave"></div>
+    </div>
+    <h1>{{ title }}</h1>
+    <form id="addStoreForm" @submit="formSubmit">
+      <fieldset>
+        <legend>New Location Data</legend>
+        <ul>
+          <li>
+            <label>Location:
+              <input @change="updateLocation" type="text" name="location">
+            </label>
+          </li>
+          <li>
+            <label>Minimum Daily Customers:
+              <input @change="updateMin" type="number" name="minimum">
+            </label>
+          </li>
+          <li>
+            <label>Maximum Daily Customers:
+              <input @change="updateMax" type="number" name="maximum">
+            </label>
+          </li>
+          <li>
+            <label>Average Cookies Sold Per Customer:
+              <input @change="updateAvgSales" type="float" name="averageSales">
+            </label>
+          </li>
+        </ul>
+        <button>Submit</button>
+      </fieldset>
+  </form>
+    <table id="store-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th v-for="time in times" :key="time">
+            {{ time }}
+          </th>
+          <th>DAILY TOTAL</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="store in stores" :key="store">
+          <th>{{ store.location }}</th>
+          <td v-for="sales in store.dailyReport" :key="sales">
+          {{ sales }}
+          </td>
+          <td> {{ store.totalCookies }}</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th>Total </th>
+          <td v-for="hourly in totalHourly" :key="hourly">
+            {{ hourly }}
+          </td>
+          <td> {{ grandTotalCookies }}</td>
+        </tr>
+      </tfoot>
+      </tbody>
+  </table>
+  <button @click="calculateTotals">Calculate Totals</button>
+  </div>
+  <script src="app.js"></script>
+</body>
+
+</html>
+
+<!-- <h1>
+  The title is {{title}}.
+</h1>
+<fieldset>
+  <legend>New Location Data</legend>
+  <ul>
+    <li>
+      <label>Location:
+        <input type="text" name="location">
+      </label>
+    </li>
+    <li>
+      <label>Minimum Daily Customers:
+        <input type="number" name="minimum">
+      </label>
+    </li>
+    <li>
+      <label>Maximum Daily Customers:
+        <input type="number" name="maximum">
+      </label>
+    </li>
+    <li>
+      <label>Average Cookies Sold Per Customer:
+        <input type="float" name="averageSales">
+      </label>
+    </li>
+  </ul>
+</fieldset>
+<table>
+  <thead>
+    <tr>
+      <
+    </tr>
+  </thead>
+</table> -->
